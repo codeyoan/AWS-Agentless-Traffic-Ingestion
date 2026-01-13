@@ -50,16 +50,16 @@ For a full breakdown of the setup process  and results with screenshots, check m
 
 ## Enhancements
 1. **Network Hardening (Private Subnets)**
-   * VPC Endpoints (AWS PrivateLink): Transition both instances to fully private subnets by deploying interface endpoints for SSM, EC2 Messages, and SSM Messages.
-   * Eliminate Internet Gateways: Remove the requirement for a public IP and IGW, ensuring that all management traffic stays within the AWS backbone.
+   * **VPC Endpoints (AWS PrivateLink):** Transition both instances to fully private subnets by deploying interface endpoints for SSM, EC2 Messages, and SSM Messages.
+   * **Eliminate Internet Gateways:** Remove the requirement for a public IP and IGW, ensuring that all management traffic stays within the AWS backbone.
 
 2. **Automated Threat Detection**
-   * Lambda Triggered Analysis: Implement an AWS Lambda function to automatically trigger a ```tcpdump``` capture on the Security Sensor when specific CloudWatch alarms are met.
-   * Centralized Logging: Intregate Amazon Kinesis to stream capatured packet metadata to an S3 data lake for long-term forensic analysis.
+   * **Lambda Triggered Analysis:** Implement an AWS Lambda function to automatically trigger a ```tcpdump``` capture on the Security Sensor when specific CloudWatch alarms are met.
+   * **Centralized Logging:** Intregate Amazon Kinesis to stream capatured packet metadata to an S3 data lake for long-term forensic analysis.
 
 3. **Scalability and Orchestration**
-   * Gateway Load Balancer: Replace the single security EC2 with a fleet of sensors behind a GWLB to allow for horizontal scaling and high availiabity of ingestion pipeline.
-   * Infrastructure as Code: Codify the entire mirroring stack using Terraform to allow for repeatable, one click deployments across multiple regions.
+   * **Gateway Load Balancer:** Replace the single security EC2 with a fleet of sensors behind a GWLB to allow for horizontal scaling and high availiabity of ingestion pipeline.
+   * **Infrastructure as Code:** Codify the entire mirroring stack using Terraform to allow for repeatable, one click deployments across multiple regions.
 
 ---
 
