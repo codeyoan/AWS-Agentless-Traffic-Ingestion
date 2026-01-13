@@ -23,9 +23,26 @@ An infrastructure first approach to network security, this project demonstrates 
 ### Phase 2: The Network Tap (Ingestion)
 * **Mirror Targets:** Configured the Security Sensor's ENI as the destination for all intercepted traffic.
 * **Traffic Mirroring Session:** Established a secure VXLAN (UDP 4789) tunnel to stream production data out-of-band.
-* **Hardened Security Groups:** Workload instance maintains zero inbound rules; Sensor instance restricted exclusively to VXLAN traffic.
+* **Hardened Security Groups:** Workload instance maintains zero inbound rules and sensor instance restricted exclusively to VXLAN traffic.
 
 ### Phase 3: Validation & Analysis
 * **Traffic Generation:** Executed standard network requests to simulate production activity.
 * **Live Capture:** Utilized ```tcpdump``` on the sensor to intercept and inspect the raw data stream.
-* **Decapsulation Verification:** Successfully verified application-layer details (HTTP/NTP) delivered via the mirror session.
+* **Decapsulation Verification:** Successfully verified application layer details (HTTP/NTP) delivered via the mirror session.
+
+## Technical Impact & Wins
+* **Non-Intrusive Visibility:** 100% packet ingestion with zero impact on production resources.
+* **Operational Decoupling:** Out-of-band design ensures that security sensor failures or spikes do not affect production uptime.
+* **Zero-Trust Management:** Eliminated the attack surface of traditional management (SSH/22) via SSM integration.
+* **Infrastructure-Level Fidelity:** Leveraged Nitro Hypervisor for raw, immutable data that is independent of guest OS limitations.
+
+## Key Learnings & Troubleshooting
+* **Modern Interface Naming:** Resolved "No such device" errors by identifying the transition from eth0 to predictable naming (ens5) in AL2023.
+* **Control Plane Routing:** Debugged SSM connectivity issues by ensuring correct Route Table entries to the Internet Gateway.
+* **Encryption Awareness:** Analyzed the difference between plaintext HTTP captures and encrypted HTTPS payloads in a security context.
+
+---
+
+**Author:** Yoan Oviedo
+**Date Completed:** January 12th, 2026
+**Focus:** Cloud Infrastructure & Network Security
