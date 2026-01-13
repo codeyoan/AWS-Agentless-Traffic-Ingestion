@@ -2,7 +2,7 @@
 ![My Skills](https://skillicons.dev/icons?i=aws,linux)
 
 ## Overview
-An infrastructure first approach to network security, this project demonstrates the deployment of a secure, agentless pakcet capture pipeline within AWS. By leveraging the Nitro Hypervisor, the architecture achieves 100% network visibility without the performance overhead or security risks associated with traditional guest-level agents.
+An infrastructure first approach to network security, this project demonstrates the deployment of a secure, agentless packet capture pipeline within AWS. By leveraging the Nitro Hypervisor, the architecture achieves 100% network visibility without the performance overhead or security risks associated with traditional guest-level agents.
 
 ## 🏛️Architecture
 | System | Role | Subnet | Image | Instance |
