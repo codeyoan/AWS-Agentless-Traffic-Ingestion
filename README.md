@@ -32,7 +32,7 @@ An infrastructure first approach to network security, this project demonstrates 
 
 ## Documentation
 
-For a full breakdown of the setup process  and results with screenshots, check out [documentation](docs/documentation.md).
+For a full breakdown of the setup process  and results with screenshots, check my [documentation](docs/documentation.md).
 
 ## Architecture layout
 <img width="1680" height="1160" alt="Architecture" src="https://github.com/user-attachments/assets/d5cd2e92-06d5-4f5e-a822-52db092927a9" />
