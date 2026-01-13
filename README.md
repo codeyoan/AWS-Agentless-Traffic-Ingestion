@@ -30,6 +30,29 @@ An infrastructure first approach to network security, this project demonstrates 
 * **Live Capture:** Utilized ```tcpdump``` on the sensor to intercept and inspect the raw data stream.
 * **Decapsulation Verification:** Successfully verified application layer details (HTTP/NTP) delivered via the mirror session.
 
+## Documentation
+### 1. Identity & Access Management (IAM) Role with correct policy to allow use of AWS Systems Manager
+<img width="374" height="89" alt="image" src="https://github.com/user-attachments/assets/bc96e97b-c72a-4911-925d-ea77f43e9859" />
+
+### 2. Create Virtual Private Cloud (VPC) which will house two subnets, two EC2 instances, and the traffic mirror session.
+<img width="1010" height="598" alt="image" src="https://github.com/user-attachments/assets/8e7dd64a-4ebf-4d5a-b8b4-847a3d599042" />
+
+### 3. Segmented the VPC into two subnets for Workload and Security monitoring.
+<img width="949" height="172" alt="image" src="https://github.com/user-attachments/assets/0a9133bc-ed29-474b-9366-05c00302d185" />
+
+### 4. Route Table uses ```0.0.0.0/0``` to accept all outbound traffic with a destination to our Internet Gateway (IGW).
+<img width="714" height="432" alt="image" src="https://github.com/user-attachments/assets/6e0ee554-d5a3-45f8-936e-1e406e1aaab7" />
+
+### 5. Workload EC2 instance launched utilizing Amazon Linux 2023 image on a t3.micro instance. Configured network to utilize our created VPC, the workload subnet, assign a public IP for testing, and a Security Group with no inbound rules.
+<img width="1053" height="694" alt="image" src="https://github.com/user-attachments/assets/528fbe14-11a0-49ba-8431-6e3c2bb903e6" />
+
+### 6. Security EC2 instance launched using the same configuration as the Workload EC2 instance with adjusted Security Group. Inbound only accepts UDP Port 4789 from the Workload Subnet (10.0.1.0/24).
+<img width="1061" height="870" alt="image" src="https://github.com/user-attachments/assets/5171c1ad-2908-4c8d-b397-2d2e45b22597" />
+
+### 7. Applied previously created IAM role to both EC2 instances so SSM access is enabled. Left key pairs disabled.
+<img width="694" height="202" alt="image" src="https://github.com/user-attachments/assets/0b219a84-0445-405f-a7f7-a4af4c456d35" />
+
+
 ## Technical Impact & Wins
 * **Non-Intrusive Visibility:** 100% packet ingestion with zero impact on production resources.
 * **Operational Decoupling:** Out-of-band design ensures that security sensor failures or spikes do not affect production uptime.
