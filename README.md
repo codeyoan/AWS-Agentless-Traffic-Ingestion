@@ -5,5 +5,6 @@ An infrastructure first approach to network security, this project demonstrates 
 
 # Lab Architecture
 | System | Role | Subnet | Image | Instance |
+|--------|------|------------|-----|-------|
 | **Workload EC2** | Production Data Source | 10.0.1.0/24 (Workload) | Amazon Linux 2023 (Nitro) | t3.micro
 | **Security EC2** | Dedicated Security Sensor | 10.0.2.0/24 (Security) | Amazon Linux 2023 (Nitro) | t3.micro
