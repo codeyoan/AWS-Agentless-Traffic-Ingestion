@@ -13,7 +13,7 @@ An infrastructure first approach to network security, this project demonstrates 
 ### Project Design Pillars
 * **Operational Integrity:** Out-of-band design ensures zero performance impact on production workloads.
 * **Security by Design:** Segmented VPC architecture with zero inbound management ports (No SSH/22).
-* **Packet Level Verification:** Technical validation of HTTP/NTP traffic decapsulation via VXLAN.
+* **Packet Level Verification:** Validation of HTTP traffic decapsulation via VXLAN.
 
 ## 🛠️What I Built
 ### Phase 1: Establishing the Foundation
